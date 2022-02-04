@@ -4,7 +4,7 @@
 </h1>
 
 ## Sobre o que foi proposto :triangular_flag_on_post:
-Constitia no desenvolvimento de um site onde apresentava informações consumidas da [api-fake](https://my-json-server.typicode.com/tractian/fake-api); <br>
+Consiste no desenvolvimento de um site onde apresentava informações consumidas da [api-fake](https://my-json-server.typicode.com/tractian/fake-api); <br>
 Apresentava dados das unidades ativas e dos produtos que a empresa monitorava; <br>
 Foi apresentado gráficos para melhor visualização dos dados, como, saúde, potencia e informações gerais sobre a empresa.
 
