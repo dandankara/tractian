@@ -16,11 +16,6 @@ export const ContainerContent = styled.div`
   border-radius: 12px;
   flex: 1;
   box-shadow: 0px 1px 8px -1px #000;
-
-  @media screen and (max-width: 768px) {
-    margin: auto;
-    max-width: 100%;
-  }
 `;
 
 export const Content = styled.div`

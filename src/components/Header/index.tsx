@@ -19,8 +19,12 @@ export default function Header() {
             <span>Unidades</span>
           </Link>
 
-          <Link to="/companies">
+          <Link to="/assets">
             <span>Ativos</span>
+          </Link>
+
+          <Link to="/users">
+            <span>Usuários</span>
           </Link>
 
           <Link to="/companies">

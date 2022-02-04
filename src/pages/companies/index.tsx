@@ -69,7 +69,7 @@ export default function Companies() {
     },
 
     title: {
-      text: `Detalhes da empresa ${companies[0]?.name}`,
+      text: `Detalhes da: ${companies[0]?.name}`,
     },
 
     tooltip: {
