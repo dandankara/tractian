@@ -55,7 +55,7 @@ export default function Companies() {
           console.log("deu ruim users");
         }
       });
-    }, 2000);
+    }, );
   });
 
   const option = {
