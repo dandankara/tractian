@@ -14,20 +14,20 @@ const Assets: React.FC = () => {
   useEffect(() => {
     setTimeout(() => {
       api.get("units").then((rest) => {
-        if (rest.status === 408) {
-          console.log("deu ruim units");
-        } else {
+        if (rest.status === 200) {
           setUnit(rest.data);
+        } else {
+          console.log("deu ruim units");
         }
       });
       api.get("assets").then((rest) => {
-        if (rest.status === 408) {
-          console.log("deu ruim assets");
-        } else {
+        if (rest.status === 200) {
           setAssets(rest.data);
+        } else {
+          console.log("deu ruim assets");
         }
       });
-    }, 3000);
+    }, 2000);
   });
 
   const AllUnities = (): void => {
@@ -70,11 +70,13 @@ const Assets: React.FC = () => {
             <Button onClick={Unity1}>{unit[0]?.name}</Button>
             <Button onClick={Unity2}>{unit[1]?.name}</Button>
           </ButtonContainer>
-          <ContentGraph>
-            {assets.map((asset: AssetsInfo) => (
-              <AssetItem key={asset.id} asset={asset} />
-            ))}
-          </ContentGraph>
+          <>
+            <ContentGraph>
+              {assets.map((asset: AssetsInfo) => (
+                <AssetItem key={asset.id} asset={asset} />
+              ))}
+            </ContentGraph>
+          </>
         </ContainerContent>
       </Container>
     </>

@@ -34,27 +34,27 @@ const Units: React.FC = () => {
   useEffect(() => {
     setTimeout(() => {
       api.get("units").then((res) => {
-        if (res.status === 408) {
-          console.log("deu ruim units");
-        } else {
+        if (res.status === 200) {
           setUnit(res.data);
+        } else {
+          console.log("deu ruim units");
         }
       });
       api.get("assets").then((res) => {
-        if (res.status === 408) {
-          console.log("deu ruim assets");
-        } else {
+        if (res.status === 200) {
           setAssets(res.data);
+        } else {
+          console.log("deu ruim assets");
         }
       });
       api.get("users").then((res) => {
-        if (res.status === 408) {
-          console.log("deu ruim users");
-        } else {
+        if (res.status === 200) {
           setUsers(res.data);
+        } else {
+          console.log("deu ruim users");
         }
       });
-    }, 3000);
+    }, 2000);
   });
 
   const AllUnit = (): void => {

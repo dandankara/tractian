@@ -27,7 +27,7 @@ export default function Header() {
             <span>Usuários</span>
           </Link>
 
-          <Link to="/companies">
+          <Link to="/info">
             <span>Informações</span>
           </Link>
         </Items>

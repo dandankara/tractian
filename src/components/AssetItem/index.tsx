@@ -45,17 +45,17 @@ const UnityItem: React.FC<AssetProps> = ({ asset }) => {
             <p>Modelo: {asset.model === "motor" ? "Motor" : "Ventilador"}</p>
             {asset.status === "inAlert" && (
               <p>
-                Status: <span style={{ color: "#de9d26" }}>Em alerta</span>
+                Status: <span style={{ color: "yelown" }}>Em alerta</span>
               </p>
             )}
             {asset.status === "inOperation" && (
               <p>
-                Status: <span style={{ color: "#26de45" }}>Em Operação</span>
+                Status: <span style={{ color: "green" }}>Em Operação</span>
               </p>
             )}
             {asset.status === "inDowntime" && (
               <p>
-                Status: <span style={{ color: "#b01b19" }}>Em Parada</span>
+                Status: <span style={{ color: "red" }}>Em Parada</span>
               </p>
             )}
             {asset.status === undefined && <p>Status: -</p>}

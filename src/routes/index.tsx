@@ -7,6 +7,7 @@ import Home from '../pages/home';
 import Units from '../pages/unitys';
 import Assets from '../pages/assets';
 import Users from '../pages/users';
+import Info from '../pages/info';
 
 const Routes: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Routes: React.FC = () => {
         <Route path='/units' component={Units} />
         <Route path='/assets' component={Assets} />
         <Route path='/users' component={Users} />
+        <Route path='/info' component={Info} />
     </Switch>
   );
 };

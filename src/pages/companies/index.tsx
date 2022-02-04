@@ -25,37 +25,37 @@ export default function Companies() {
   useEffect(() => {
     setTimeout(() => {
       api.get("companies").then((res) => {
-        if (res.status === 408) {
-          console.log("deu ruim");
-        } else {
+        if (res.status === 200) {
           setCompanies(res.data);
+        } else {
+          console.log("deu ruim");
         }
       });
 
       api.get("units").then((res) => {
-        if (res.status === 408) {
-          console.log("deu ruim units");
-        } else {
+        if (res.status === 200) {
           setUnits(res.data);
+        } else {
+          console.log("deu ruim units");
         }
       });
 
       api.get("assets").then((res) => {
-        if (res.status === 408) {
-          console.log("deu ruim assets");
-        } else {
+        if (res.status === 200) {
           setAssets(res.data);
+        } else {
+          console.log("deu ruim assets");
         }
       });
 
       api.get("users").then((res) => {
-        if (res.status === 408) {
-          console.log("deu ruim users");
-        } else {
+        if (res.status === 200) {
           setUsers(res.data);
+        } else {
+          console.log("deu ruim users");
         }
       });
-    }, 3000);
+    }, 2000);
   });
 
   const option = {
