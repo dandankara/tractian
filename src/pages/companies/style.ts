@@ -25,17 +25,6 @@ export const Text = styled.div`
         margin-top: 20px;
         margin-bottom: 20px;
     }
-
-    @media screen and (max-width: 768px) {
-    p {
-      font-size: 18px;
-      line-height: 24px;
-    }
-
-    h1 {
-      margin-top: 18px;
-      margin-bottom: 18px;
-    }
 `;
 
 export const ContainerGraph = styled.div`
