@@ -30,6 +30,29 @@ const Users: React.FC = () => {
       });
     }, 3000);
   });
+
+  const Unit1 = (): void => {
+    api.get('users', {
+      params:{
+        unitId: 1,
+      },
+    })
+    .then((res) => {
+      setUsers(res.data)
+    })
+  }
+
+  const Unit2 = (): void => {
+    api.get('users', {
+      params:{
+        unitId: 2,
+      },
+    })
+    .then((res) => {
+      setUsers(res.data)
+    })
+  }
+
   return (
     <>
       <Header />
@@ -37,8 +60,8 @@ const Users: React.FC = () => {
         <ContentContainer>
           <ButtonContainer>
             <Button>Usuários Ativos</Button>
-            <Button>{unit[0]?.name}</Button>
-            <Button>{unit[1]?.name}</Button>
+            <Button onClick={Unit1}>{unit[0]?.name}</Button>
+            <Button onClick={Unit2}>{unit[1]?.name}</Button>
           </ButtonContainer>
 
           <>

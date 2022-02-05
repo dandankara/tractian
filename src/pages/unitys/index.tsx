@@ -21,15 +21,15 @@ import HighchartsReact from "highcharts-react-official";
 Exporting(Highcharts);
 
 const Units: React.FC = () => {
-  // seta as informaçoes vinda da api no interface
+  // seta as informaçoes vinda da interface
   const [unit, setUnit] = useState<UnitInfo[]>([]);
   const [all, setAll] = useState(true);
   const [unit0, setUnit0] = useState(false);
   const [unit1, setUnit1] = useState(false);
   const [assets, setAssets] = useState<AssetsInfo[]>([]);
+  const [assetsFiltered, setAssetsFiltered] = useState<AssetsInfo[]>([]);
   const [users, setUsers] = useState<UsersInfo[]>([]);
   const [usersFiltered, setUsersFiltered] = useState<UsersInfo[]>([]);
-  const [assetsFiltered, setAssetsFiltered] = useState<AssetsInfo[]>([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -66,8 +66,8 @@ const Units: React.FC = () => {
   };
 
   const UnitX = (): void => {
-    setAll(false);
     setUnit0(true);
+    setAll(false);
     setUnit1(false);
 
     setAssetsFiltered(assets.filter((asset) => asset.unitId === 1));
@@ -75,9 +75,9 @@ const Units: React.FC = () => {
   };
 
   const UnitY = (): void => {
+    setUnit1(true);
     setAll(false);
     setUnit0(false);
-    setUnit1(true);
 
     setAssetsFiltered(assets.filter((asset) => asset.unitId === 2));
     setUsersFiltered(users.filter((user) => user.unitId === 2));
@@ -92,15 +92,15 @@ const Units: React.FC = () => {
       borderRadius: 12,
     },
     title: {
-      text: "Unidade",
+      text: "",
       align: "center",
       verticalAlign: "middle",
       y: 60,
     },
     tooltip: {
       pointFormat:
-        "{series.name} <b>{point.percentage:.1f}%</b> </br>" +
-        "{series.name} <b>{point.y}</b><br/>",
+        "{series.name} <b>{point.percentage:.1f}%</b>" +
+        "{series.name} <b>{point.y}</b>",
     },
     accessibility: {
       point: {
@@ -125,7 +125,7 @@ const Units: React.FC = () => {
     },
     series: [
       {
-        type: "pie",
+        type: "bar",
         name: "",
         innerSize: "50%",
         data: [
@@ -163,24 +163,18 @@ const Units: React.FC = () => {
                       <UnidadeItem key={eachUnity.id} eachUnity={eachUnity} />
                     ))}
                   </DataItem>
-                  {unit0 && (
-                    <Graph>
-                      <HighchartsReact
-                        highcharts={Highcharts}
-                        options={option}
-                      />
-                    </Graph>
-                  )}
-
-                  {unit1 && (
-                    <Graph>
-                      <HighchartsReact
-                        highcharts={Highcharts}
-                        options={option}
-                      />
-                    </Graph>
-                  )}
                 </>
+              )}
+              {unit0 && (
+                <Graph>
+                  <HighchartsReact highcharts={Highcharts} options={option} />
+                </Graph>
+              )}
+
+              {unit1 && (
+                <Graph>
+                  <HighchartsReact highcharts={Highcharts} options={option} />
+                </Graph>
               )}
             </>
           </Content>
