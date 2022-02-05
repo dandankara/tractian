@@ -11,7 +11,6 @@ const ItemsUnity: React.FC<UnitProps> = ({eachUnity}) => {
     return(
         <Container>
             <strong>{eachUnity.name}</strong>
-            <strong>{eachUnity.companyId === 1 && 'Empresa Teste'}</strong>
         </Container>
     )
 }
