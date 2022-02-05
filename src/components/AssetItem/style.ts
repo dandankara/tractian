@@ -39,11 +39,13 @@ export const Container = styled.div`
 
 export const ModalText = styled.div`
 p {
-    color: #1e3a8a;
-    font-weight: 500;
-  }
+  margin-bottom:10px;
+  color: #1e3a8a;
+  font-weight: 500;
+}
 
-  h2 {
+h2 {
+    margin-bottom:20px;
     color: #1e3a8a;
     font-weight: 700;
   }

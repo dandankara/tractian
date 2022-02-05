@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { AssetsInfo } from "../../interfaces";
 import { Modal } from "react-responsive-modal";
+// Importar o style do modal da biblioteca
+import 'react-responsive-modal/styles.css';
 
 import { ModalText, Container } from "./style";
 
@@ -30,7 +32,7 @@ const UnityItem: React.FC<AssetProps> = ({ asset }) => {
         <p>{asset.name}</p>
         <p>Modelo: {asset.model === "motor" ? "Motor" : "Ventilador"}</p>
         <p>Sensor: {asset.sensors}</p>
-        <button type="button" onClick={OpenModal}>
+        <button onClick={OpenModal}>
           <p>Informações</p>
         </button>
 
@@ -38,11 +40,12 @@ const UnityItem: React.FC<AssetProps> = ({ asset }) => {
           open={open}
           onClose={CloseModal}
           center
-          styles={{ modal: { borderRadius: "10px" } }}
+          styles={{ modal: { borderRadius: '20px' } }}
         >
           <ModalText>
             <h2>{asset.name}</h2>
             <p>Modelo: {asset.model === "motor" ? "Motor" : "Ventilador"}</p>
+            {/* Verificar qual o status dos motores ou ventiladores */}
             {asset.status === "inAlert" && (
               <p>
                 Status: <span style={{ color: "yelown" }}>Em alerta</span>
@@ -59,6 +62,7 @@ const UnityItem: React.FC<AssetProps> = ({ asset }) => {
               </p>
             )}
             {asset.status === undefined && <p>Status: -</p>}
+            {/*  */}
 
             <p>Saúde: {asset.healthscore ? `${asset.healthscore}%` : "-"}</p>
             <p>Total de coletas: {asset.metrics.totalCollectsUptime}</p>

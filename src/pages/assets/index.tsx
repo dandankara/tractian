@@ -13,21 +13,21 @@ const Assets: React.FC = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      api.get("units").then((rest) => {
-        if (rest.status === 200) {
-          setUnit(rest.data);
+      api.get("units").then((res) => {
+        if (res.status === 200) {
+          setUnit(res.data);
         } else {
           console.log("deu ruim units");
         }
       });
-      api.get("assets").then((rest) => {
-        if (rest.status === 200) {
-          setAssets(rest.data);
+      api.get("assets").then((res) => {
+        if (res.status === 200) {
+          setAssets(res.data);
         } else {
           console.log("deu ruim assets");
         }
       });
-    }, 2000);
+    }, 5000);
   });
 
   const AllUnities = (): void => {
@@ -36,6 +36,7 @@ const Assets: React.FC = () => {
     });
   };
 
+  // Seleciona a unidade com ID 1 pra renderizar
   const Unity1 = (): void => {
     api
       .get("assets", {
@@ -48,6 +49,7 @@ const Assets: React.FC = () => {
       });
   };
 
+  // Seleciona a unidade com id 2 para renderizar
   const Unity2 = (): void => {
     api
       .get("assets", {

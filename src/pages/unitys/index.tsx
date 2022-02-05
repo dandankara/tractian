@@ -54,7 +54,7 @@ const Units: React.FC = () => {
           console.log("deu ruim users");
         }
       });
-    }, 2000);
+    }, 5000);
   });
 
   const AllUnit = (): void => {

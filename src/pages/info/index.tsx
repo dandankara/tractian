@@ -27,7 +27,7 @@ const Info: React.FC = () => {
           console.log("deu ruim");
         }
       });
-    }, 3000);
+    }, 5000);
   });
 
   const HealButton = (): void => {
