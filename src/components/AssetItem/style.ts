@@ -21,19 +21,16 @@ export const Container = styled.div`
   }
 
   button {
-    width: 250px;
+    color: #fff;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid rgb(69,111,176);
+    border-radius: 3px;
+    background: rgb(69,111,176);
+    cursor:pointer;
+    width: auto;
     margin-top:10px;
-    border-radius: 10px;
-    outline: 0;
-    cursor: pointer;
-    &:hover {
-      background-color: blue;
-    }
-
-    p {
-        font-size:16px;
-
-    }
   }
 `;
 

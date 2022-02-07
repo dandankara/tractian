@@ -48,7 +48,7 @@ const UnityItem: React.FC<AssetProps> = ({ asset }) => {
             {/* Verificar qual o status dos motores ou ventiladores */}
             {asset.status === "inAlert" && (
               <p>
-                Status: <span style={{ color: "#FFFF00" }}>Em alerta</span>
+                Status: <span style={{ color: "#9c9c00" }}>Em alerta</span>
               </p>
             )}
             {asset.status === "inOperation" && (
