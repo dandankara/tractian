@@ -9,7 +9,7 @@ export const Container = styled.header`
 
 export const NavBarContainer = styled.nav`
     width:100%;
-    background: #002aa3;
+    background-image: radial-gradient(circle, #456fb0, #3c60c9, #2b51bd, #1e48c2);
     top:0;
 
     span{

@@ -41,12 +41,14 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
-    width: 100px;
-    height: 50px;
-    margin: 10px;
-    border-radius:10px;
-    box-shadow: 4px 5px 10px -5px #000;
-    background-color: rgba(186, 184, 184, 10);
+  color: #fff;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid rgb(69,111,176);
+  border-radius: 3px;
+  background: rgb(69,111,176);
+  cursor:pointer;
 `;
 
 export const DataDiv = styled.div`

@@ -8,7 +8,8 @@ export default createGlobalStyle`
     outline: 0;
 }
 body {
-  background-image: radial-gradient(circle, #1e3a8a, #193c9a, #133daa, #0f3eb9, #0e3fc9);
+  background: rgb(69,111,176);
+background: linear-gradient(90deg, rgba(69,111,176,1) 15%, rgba(60,96,201,1) 35%, rgba(43,81,189,1) 61%, rgba(30,72,194,1) 90%);
   color: #fff;
   -webkit-font-smoothing: antialiased;
 }
