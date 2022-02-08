@@ -126,14 +126,14 @@ export default function Companies() {
 
   return (
     <>
-    {loader ? <Loader /> : null}
       <Header />
+    {loader ? <Loader /> : null}
       <Container>
         <Text>
           <p>Quantidade de ativos: {assets.length}</p>
-          <p>Quantidade de usuários no: {users.length}</p>
-          <p>Quantidade de empresas atualmente: {companies.length}</p>
-          <p>Quantidade unidades em funcionamento: {units.length}</p>
+          <p>Usuários cadastrados: {users.length}</p>
+          <p>Empresas em funcionamento: {companies.length}</p>
+          <p>Unidades em operação: {units.length}</p>
           <p>Segue os dados base como exemplo da {companies[0]?.name}:</p>
         </Text>
 

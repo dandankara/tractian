@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 430px;
   background-color: rgba(255, 255, 255, 0.2);
   max-width: 900px;
   align-items: flex-start;

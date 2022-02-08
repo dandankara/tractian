@@ -56,8 +56,8 @@ const Users: React.FC = () => {
 
   return (
     <>
-    {loader ? <Loader /> : null}
       <Header />
+    {loader ? <Loader /> : null}
       <Container>
         <ContentContainer>
           <ButtonContainer>

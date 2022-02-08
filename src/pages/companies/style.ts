@@ -2,23 +2,24 @@ import styled from 'styled-components';
 
 
 export const Container = styled.div`
-    display: flex;
+  display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: rgba(255, 255, 255, 0.2);
   max-width: 900px;
   align-items: flex-start;
-  margin: 40px auto;
-  padding: 28px;
+  margin: 20px auto;
+  padding: 10px;
   border-radius: 12px;
   flex: 1;
-  box-shadow: 0px 1px 8px -1px #000;
+  box-shadow: 0px 1px 5px -1px #000;
 `;
 
 export const Text = styled.div`
     p {
         font-size: 22px;
-        line-height: 40px;
+        line-height: 30px;
+        color: #1a1a1a;
     }
 
     h1 {
@@ -29,5 +30,5 @@ export const Text = styled.div`
 
 export const ContainerGraph = styled.div`
     align-self:center;
-    margin-top:20px;
+    margin-top:10px;
 `;

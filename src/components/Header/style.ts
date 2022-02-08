@@ -3,30 +3,29 @@ import styled from 'styled-components';
 export const Container = styled.header`
     display: flex
     flex-direction:column;
-    background-color:#1e3a8a;
     align-items:center;
+    box-shadow: 0px 3px 7px -5px #1A1A1A;
+    background:rgb(69,111,176) ;
 `;
 
 export const NavBarContainer = styled.nav`
-    width:100%;
-    background-image: radial-gradient(circle, #456fb0, #3c60c9, #2b51bd, #1e48c2);
-    top:0;
-
     span{
         font-weight:bold;
+        color: #f5f5f5;
     }
 
     span:hover{
-        border-bottom:1px solid #ffff;
+        border-bottom:1px solid #454545;
     }
 `;
 
 export const Items = styled.div`
     display: flex;
+
     a{
         width: 20%;
         padding:1rem;
-        color: #ffffff;
+        color: #1a1a1a;
         text-decoration:none;
         text-align:center;
     }

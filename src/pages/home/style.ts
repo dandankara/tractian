@@ -16,6 +16,7 @@ export const Content = styled.div`
 `;
 
 export const Text = styled.div`
+color: #1a1a1a;
     span{
         font-size:1.5rem;
     }

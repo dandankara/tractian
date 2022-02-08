@@ -7,7 +7,7 @@ export const Container = styled.div`
 export const ContainerContent = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 350;
   background-color: rgba(255, 255, 255, 0.2);
   max-width: 900px;
   align-items: flex-start;
@@ -15,7 +15,7 @@ export const ContainerContent = styled.div`
   padding: 28px;
   border-radius: 12px;
   flex: 1;
-  box-shadow: 0px 1px 8px -1px #000;
+  box-shadow: 0px 2px 4px -1px #000;
 `;
 
 export const Content = styled.div`
@@ -29,7 +29,7 @@ export const Content = styled.div`
   padding: 28px;
   border-radius: 12px;
   flex: 1;
-  box-shadow: 0px 1px 8px -1px #000;
+  box-shadow: 0px 2px 4px -1px #000;
 `;
 
 export const ButtonContainer = styled.div`

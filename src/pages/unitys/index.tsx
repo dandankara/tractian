@@ -138,8 +138,8 @@ const Units: React.FC = () => {
 
   return (
     <>
-    {loader ? <Loader /> : null}
       <Header />
+    {loader ? <Loader /> : null}
       <Container>
         <ContainerContent>
           <ButtonContainer>

@@ -19,7 +19,7 @@ const Info: React.FC = () => {
   const [power, setPower] = useState(false);
   const [rotation, setRotation] = useState(false);
 
-const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const getAssetsPromise = api.get("assets");
@@ -30,7 +30,7 @@ const [loader, setLoader] = useState(true);
       } else {
         console.log("deu ruim");
       }
-      setLoader(false)
+      setLoader(false);
     });
   }, []);
 
@@ -231,8 +231,8 @@ const [loader, setLoader] = useState(true);
 
   return (
     <>
-    {loader ? <Loader /> : null}
       <Header />
+      {loader ? <Loader /> : null}
       <ContainerContent>
         <ButtonContainer>
           <Button onClick={HealButton}>Saúde</Button>
