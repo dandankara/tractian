@@ -3,7 +3,7 @@ import { AssetsInfo, UnitInfo, UsersInfo } from "../../interfaces";
 import api from "../../services/api";
 import Highcharts from "highcharts";
 import Exporting from "highcharts/modules/exporting";
-
+import Loader from "../../components/Loader";
 import Header from "../../components/Header";
 import {
   ButtonContainer,
@@ -30,32 +30,32 @@ const Units: React.FC = () => {
   const [assetsFiltered, setAssetsFiltered] = useState<AssetsInfo[]>([]);
   const [users, setUsers] = useState<UsersInfo[]>([]);
   const [usersFiltered, setUsersFiltered] = useState<UsersInfo[]>([]);
-
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
-      api.get("units").then((res) => {
-        if (res.status === 200) {
-          setUnit(res.data);
-        } else {
-          console.log("deu ruim units");
-        }
-      });
-      api.get("assets").then((res) => {
-        if (res.status === 200) {
-          setAssets(res.data);
-        } else {
-          console.log("deu ruim assets");
-        }
-      });
-      api.get("users").then((res) => {
-        if (res.status === 200) {
-          setUsers(res.data);
-        } else {
-          console.log("deu ruim users");
-        }
-      });
-    }, 5000);
-  });
+
+    const getUnitsPromise = api.get('units');
+    const getAssetsPromise = api.get('assets');
+    const getUsersPromise = api.get('users');
+
+    Promise.all([getUnitsPromise,getAssetsPromise,getUsersPromise]).then((values) => {
+      if (values[0].status === 200) {
+        setUnit(values[0].data);
+      } else {
+        console.log("deu ruim units");
+      }
+      if (values[1].status === 200) {
+        setAssets(values[1].data);
+      } else {
+        console.log("deu ruim assets");
+      }
+      if (values[2].status === 200) {
+        setUsers(values[2].data);
+      } else {
+        console.log("deu ruim users");
+      }
+      setLoader(false)
+    })
+  },[]);
 
   const AllUnit = (): void => {
     //Mantem o valor de all true
@@ -138,6 +138,7 @@ const Units: React.FC = () => {
 
   return (
     <>
+    {loader ? <Loader /> : null}
       <Header />
       <Container>
         <ContainerContent>

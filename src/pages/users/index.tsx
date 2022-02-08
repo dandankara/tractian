@@ -5,31 +5,32 @@ import { UnitInfo, UsersInfo } from "../../interfaces";
 import api from "../../services/api";
 import { Button, ButtonContainer } from "../unitys/style";
 import { Container, ContentContainer, UserDiv } from "./style";
+import Loader from "../../components/Loader";
 
 const Users: React.FC = () => {
   // Preciso das informações de usuários e das unidades;
   const [unit, setUnit] = useState<UnitInfo[]>([]);
   const [users, setUsers] = useState<UsersInfo[]>([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      api.get("units").then((res) => {
-        if (res.status === 200) {
-          setUnit(res.data);
-        } else {
-          console.log("deu ruim");
-        }
-      });
+    const getUnitsPromise = api.get('units');
+    const getUsersPromise = api.get('users');
 
-      api.get("users").then((res) => {
-        if (res.status === 200) {
-          setUsers(res.data);
-        } else {
-          console.log("deu muito ruim");
-        }
-      });
-    }, 3000);
-  });
+    Promise.all([getUnitsPromise,getUsersPromise]).then((values) => {
+      if (values[0].status === 200) {
+        setUnit(values[0].data);
+      } else {
+        console.log("deu ruim");
+      }
+      if (values[1].status === 200) {
+        setUsers(values[1].data);
+      } else {
+        console.log("deu muito ruim");
+      }
+      setLoader(false)
+    })
+  }, []);
 
   const Unit1 = (): void => {
     api.get('users', {
@@ -55,6 +56,7 @@ const Users: React.FC = () => {
 
   return (
     <>
+    {loader ? <Loader /> : null}
       <Header />
       <Container>
         <ContentContainer>

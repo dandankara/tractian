@@ -3,32 +3,34 @@ import { AssetsInfo, UnitInfo } from "../../interfaces";
 import { Container, ContentGraph } from "./style";
 import Header from "../../components/Header";
 import AssetItem from "../../components/AssetItem";
-
+import Loader from '../../components/Loader';
 import api from "../../services/api";
 import { Button, ButtonContainer, ContainerContent } from "../unitys/style";
 
 const Assets: React.FC = () => {
   const [unit, setUnit] = useState<UnitInfo[]>([]);
   const [assets, setAssets] = useState<AssetsInfo[]>([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      api.get("units").then((res) => {
-        if (res.status === 200) {
-          setUnit(res.data);
+    const getUnitiesPromisse = api.get("units");
+    const getAssetsPromisse = api.get("assets");
+    
+    Promise.all([getUnitiesPromisse, getAssetsPromisse]).then((values) => {
+        if (values[0].status === 200) {
+          setUnit(values[0].data);
         } else {
           console.log("deu ruim units");
         }
-      });
-      api.get("assets").then((res) => {
-        if (res.status === 200) {
-          setAssets(res.data);
+
+        if (values[1].status === 200) {
+          setAssets(values[1].data);
         } else {
           console.log("deu ruim assets");
         }
+        setLoader(false)
       });
-    }, 5000);
-  });
+  },[]);
 
   const AllUnities = (): void => {
     api.get("assets").then((res) => {
@@ -64,6 +66,8 @@ const Assets: React.FC = () => {
 
   return (
     <>
+      {loader ? <Loader /> : null}
+
       <Header />
       <Container>
         <ContainerContent>

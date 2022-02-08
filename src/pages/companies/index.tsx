@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Container, ContainerGraph, Text } from "./style";
-
+import Loader from "../../components/Loader";
 import Header from "../../components/Header";
 
 import HighchartsReact from "highcharts-react-official";
@@ -22,41 +22,43 @@ export default function Companies() {
   const [assets, setAssets] = useState<AssetsInfo[]>([]);
   const [users, setUsers] = useState<UsersInfo[]>([]);
 
+  const [loader, setLoader] = useState(true);
+
   useEffect(() => {
-    setTimeout(() => {
-      api.get("companies").then((res) => {
-        if (res.status === 200) {
-          setCompanies(res.data);
-        } else {
-          console.log("deu ruim");
-        }
-      });
+    const getCompaniesPromisse = api.get("companies");
+    const getUnitsPromisse = api.get("units");
+    const getAssetsPromisse = api.get("assets");
+    const getUsersPromisse = api.get("users");
 
-      api.get("units").then((res) => {
-        if (res.status === 200) {
-          setUnits(res.data);
-        } else {
-          console.log("deu ruim units");
-        }
-      });
-
-      api.get("assets").then((res) => {
-        if (res.status === 200) {
-          setAssets(res.data);
-        } else {
-          console.log("deu ruim assets");
-        }
-      });
-
-      api.get("users").then((res) => {
-        if (res.status === 200) {
-          setUsers(res.data);
-        } else {
-          console.log("deu ruim users");
-        }
-      });
-    }, 5000 );
-  });
+    Promise.all([
+      getCompaniesPromisse,
+      getUnitsPromisse,
+      getAssetsPromisse,
+      getUsersPromisse,
+    ]).then((values) => {
+      if (values[0].status === 200) {
+        setCompanies(values[0].data);
+      } else {
+        console.log("deu ruim");
+      }
+      if (values[1].status === 200) {
+        setUnits(values[1].data);
+      } else {
+        console.log("deu ruim units");
+      }
+      if (values[2].status === 200) {
+        setAssets(values[2].data);
+      } else {
+        console.log("deu ruim assets");
+      }
+      if (values[3].status === 200) {
+        setUsers(values[3].data);
+      } else {
+        console.log("deu ruim users");
+      }
+      setLoader(false)
+    });
+  }, []);
 
   const option = {
     chart: {
@@ -124,6 +126,7 @@ export default function Companies() {
 
   return (
     <>
+    {loader ? <Loader /> : null}
       <Header />
       <Container>
         <Text>

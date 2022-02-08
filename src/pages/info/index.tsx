@@ -4,6 +4,7 @@ import HighchartsReact from "highcharts-react-official";
 import Exporting from "highcharts/modules/exporting";
 import Header from "../../components/Header";
 import { AssetsInfo } from "../../interfaces";
+import Loader from "../../components/Loader";
 
 import api from "../../services/api";
 import { Button, ContainerContent, ButtonContainer } from "../unitys/style";
@@ -18,17 +19,20 @@ const Info: React.FC = () => {
   const [power, setPower] = useState(false);
   const [rotation, setRotation] = useState(false);
 
+const [loader, setLoader] = useState(true);
+
   useEffect(() => {
-    setTimeout(() => {
-      api.get("assets").then((res) => {
-        if (res.status === 200) {
-          setAssets(res.data);
-        } else {
-          console.log("deu ruim");
-        }
-      });
-    }, 5000);
-  });
+    const getAssetsPromise = api.get("assets");
+
+    Promise.all([getAssetsPromise]).then((values) => {
+      if (values[0].status === 200) {
+        setAssets(values[0].data);
+      } else {
+        console.log("deu ruim");
+      }
+      setLoader(false)
+    });
+  }, []);
 
   const HealButton = (): void => {
     setHeal(true);
@@ -227,6 +231,7 @@ const Info: React.FC = () => {
 
   return (
     <>
+    {loader ? <Loader /> : null}
       <Header />
       <ContainerContent>
         <ButtonContainer>
